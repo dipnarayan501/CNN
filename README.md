@@ -143,11 +143,7 @@ history = model.fit(train_generator,
 wandb.agent(id, train, entity="fdl-moni_dip", project="test_cnn_part_a" , count=50)
 
 ## Visualization Guided backprogation 
-
-For the visualization of Guided Backpropgation we have made a function `guided_backprop`.
-To run it for visualizing the guided backpropagation of 10 images
-
-7.Guided Backprogation (You can simply run the cell)
+Guided Backprogation (You can simply run the cell)
 ```python
 
 ```
