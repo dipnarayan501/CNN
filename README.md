@@ -1,4 +1,4 @@
-# CS6910 CNN Assignment 2
+# CS6910 Assignment 2
  CS6910 Fundamentals of Deep Learning.
 
 Team members: Dip Narayan Gupta(CS21Z025),Monica (CS21Z023)
@@ -147,13 +147,14 @@ wandb.agent(id, train, entity="fdl-moni_dip", project="test_cnn_part_a" , count=
 For the visualization of Guided Backpropgation we have made a function `guided_backprop`.
 To run it for visualizing the guided backpropagation of 10 images
 
-7.Guided Backprogation 
+7.Guided Backprogation (You can simply run the cell)
 ```python
 
 ```
 To run it for visualizing the guided backpropagation of 10 images
 
 ---
+```python coding
 ## Part B  Transfer Learning(pre-training) 
 
 ## data spliting 
@@ -261,12 +262,14 @@ history = model.fit(train_generator,
 ## running in sweeps 
 wandb.agent(id, train, entity="moni6264", project="test_cnn_part_b" , count=40)
 
-
+```python
 
 # Part C - Application using YoloV3 (Object Detection )
 We have done
 1. Mask detection using Webcam
 2. Social distancing violence
 2. Multiple objects detection(eg. person, bag)
+
+
 
 
