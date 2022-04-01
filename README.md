@@ -273,7 +273,7 @@ wandb.agent(id, train, entity="moni6264", project="test_cnn_part_b" , count=40)
 We have done
 1. Mask detection using Webcam
 2. Multiple objects detection(eg. person, bag)
-
+3.Social distancing Violence
 
 
 
