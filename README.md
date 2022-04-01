@@ -137,13 +137,17 @@ history = model.fit(train_generator,
                     validation_data = val_generator,
                     validation_steps = val_generator.n//val_generator.batch_size,
                     epochs=epochs, verbose = 2
-                    ,callbacks=[earlyStopping, checkpoint])
+                    ,callbacks=[WandbCallback(), earlyStopping, checkpoint]))
 
 ## running sweeps 
 wandb.agent(id, train, entity="fdl-moni_dip", project="test_cnn_part_a" , count=50)
 
 ## Visualization Guided backprogation 
-Guided Backprogation (You can simply run the cell)
+
+For the visualization of Guided Backpropgation we have made a function `guided_backprop`.
+To run it for visualizing the guided backpropagation of 10 images
+
+7.Guided Backprogation (You can simply run the cell)
 ```python
 
 ```
@@ -166,6 +170,11 @@ data_agumention = True    #Augmenting data
 batch_size = 250          #size used to train model
 
 it returns train_generator , val_generator, test_generator
+
+## Calling inbuilt pretrained model function
+def models(pretrained_model_name)  #pretrained_model_name refers to model name we want to use
+
+returns pre_train_model
 
 ## Pre trained model function
 
@@ -253,7 +262,7 @@ history = model.fit(train_generator,
                     validation_data = val_generator,
                     validation_steps = val_generator.n//val_generator.batch_size,
                     epochs=epochs, verbose = 2
-                    ,callbacks=[earlyStopping, checkpoint])
+                    ,callbacks=[WandbCallback(), earlyStopping, checkpoint])
 
 ## running in sweeps 
 wandb.agent(id, train, entity="moni6264", project="test_cnn_part_b" , count=40)
@@ -263,7 +272,6 @@ wandb.agent(id, train, entity="moni6264", project="test_cnn_part_b" , count=40)
 # Part C - Application using YoloV3 (Object Detection )
 We have done
 1. Mask detection using Webcam
-2. Social distancing violence
 2. Multiple objects detection(eg. person, bag)
 
 
