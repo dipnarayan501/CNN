@@ -53,8 +53,8 @@ def CNN(filter,filter_size,dense_layer,dropout, normalisation)
 1.Filter :[16,32,64,128,256]   list of number in filter for all layers
 2.Filter sizes : [ [(3, 3), (3, 3), (3, 3), (3, 3), (3, 3)] list of filter size for all layers
 3.Denser Layer size : 256 size of dense layers
-4.Drop out : [0.1,0.2,0.3,0.4] The values of dropout to used at the dense layers 
-6.Batch Normalization : True or false Batch Normalization layer can be used several times in a CNN network 
+4.Drop out : [0,0.1,0.2,0.4] The values of dropout to used at the dense layers 
+6.Batch Normalization : True or false Batch Normalization layer can be used for normalising data in a CNN network 
 
 it return the model 
 
@@ -142,7 +142,7 @@ history = model.fit(train_generator,
 ## running sweeps 
 wandb.agent(id, train, entity="fdl-moni_dip", project="test_cnn_part_a" , count=50)
 
-## Visualization Guided backprogation 
+ 
 
 
 7.Guided Backprogation , test_image prediction(You can simply run the cell as it is properly commented)
@@ -182,8 +182,8 @@ pre_train_model: [ResNet50, Xception,InceptionV3, InceptionResNetV2]
 Data augmentation (data_augmentation): [True ,False]
 Batch size for training (batch_size): [128,256]
 Number of neurons in the fully connected layer (dense layer): [256,512]
-Learning Rate : [0.01,0.001]
-Dropout (dropout) : [0.1,0.2,0.3]
+Learning Rate : [0.001,0.0001]
+Dropout (dropout) : [0,0.1,0.2,0.3]
 pre_layer_train : [None,10,20]
 
 
@@ -263,6 +263,7 @@ history = model.fit(train_generator,
                     ,callbacks=[WandbCallback(), earlyStopping, checkpoint])
 
 ## running in sweeps 
+
 wandb.agent(id, train, entity="moni6264", project="test_cnn_part_b" , count=40)
 
 ```python
