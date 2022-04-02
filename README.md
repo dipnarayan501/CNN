@@ -144,14 +144,12 @@ wandb.agent(id, train, entity="fdl-moni_dip", project="test_cnn_part_a" , count=
 
 ## Visualization Guided backprogation 
 
-For the visualization of Guided Backpropgation we have made a function `guided_backprop`.
-To run it for visualizing the guided backpropagation of 10 images
 
-7.Guided Backprogation (You can simply run the cell)
+7.Guided Backprogation , test_image prediction(You can simply run the cell as it is properly commented)
 ```python
 
 ```
-To run it for visualizing the guided backpropagation of 10 images
+
 
 ---
 ```python coding
