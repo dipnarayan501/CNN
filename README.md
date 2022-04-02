@@ -140,12 +140,16 @@ history = model.fit(train_generator,
                     ,callbacks=[WandbCallback(), earlyStopping, checkpoint]))
 
 ## running sweeps 
+
+## Generates a sweep id
+sweep_id = wandb.sweep(sweep_config, entity="fdl-moni_dip", project="test_cnn_part_a" )
+
 wandb.agent(id, train, entity="fdl-moni_dip", project="test_cnn_part_a" , count=50)
 
  
 
 
-7.Guided Backprogation , test_image prediction(You can simply run the cell as it is properly commented)
+Guided Backprogation filter nad test_image prediction(You can simply run the cell as it is properly commented)
 ```python
 
 ```
@@ -165,14 +169,14 @@ def data_preparation(data_dir , data_augmentation , batch_size)
 
 data_dir = "inaturalist_12K"
 data_agumention = True    #Augmenting data 
-batch_size = 250          #size used to train model
+batch_size = 128         #size used to train model
 
 it returns train_generator , val_generator, test_generator
 
 ## Calling inbuilt pretrained model function
 def models(pretrained_model_name)  #pretrained_model_name refers to model name we want to use
 
-returns pre_train_model
+It returns pre_train_model
 
 ## Pre trained model function
 
@@ -264,7 +268,12 @@ history = model.fit(train_generator,
 
 ## running in sweeps 
 
-wandb.agent(id, train, entity="moni6264", project="test_cnn_part_b" , count=40)
+##You can change model for wandb sweeps
+pre_train_model = "InceptionResNetV2"
+## Generates a sweep id
+sweep_id = wandb.sweep(sweep_config, entity="moni6264", project="test_cnn_partb")
+
+wandb.agent(sweep_id, train, entity="moni6264", project="test_cnn_part_b" , count=40)
 
 ```python
 
@@ -272,7 +281,4 @@ wandb.agent(id, train, entity="moni6264", project="test_cnn_part_b" , count=40)
 We have done
 1. Mask detection using Webcam
 2. Multiple objects detection(eg. person, bag)
-3.Social distancing Violence
-
-
-
+3. Social distancing Violence
