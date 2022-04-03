@@ -185,11 +185,10 @@ def pretrain_model(pretrained_model_name, dropout, dense_layer, pre_layer_train=
 pre_train_model: [ResNet50, Xception,InceptionV3, InceptionResNetV2]
 Data augmentation (data_augmentation): [True ,False]
 Batch size for training (batch_size): [128,256]
-Number of neurons in the fully connected layer (dense layer): [256,512]
+Number of neurons in the fully connected layer (dense layer): [128,256,512]
 Learning Rate : [0.001,0.0001]
 Dropout (dropout) : [0,0.1,0.2,0.3]
 pre_layer_train : [None,10,20]
-
 
 It return the model 
 
@@ -210,7 +209,7 @@ def train():
 ## sweep configuration 
 
 sweep_config = {
-  "name": "DL_assi_2_part_b",
+  "name": "CNN_PartB",
   "metric": {
       "name":"val_accuracy",
       "goal": "maximize"
@@ -218,29 +217,30 @@ sweep_config = {
   "method": "bayes",
   "parameters": {
         "data_augmentation": {
-            "values": [True]
+            "values": [True, False]
         },
         "batch_size": {
-            "values": [256]
+            "values": [128, 256]
         },
         "learning_rate": {
-            "values": [0.001]
+            "values": [0.001, 0.0001]
         },
         "epochs": {
-            "values": [10]
+            "values": [5, 10]
         },
         "dropout": {
-            "values": [0.4]
+            "values": [0, 0.1,0.2,0.4]
         },
         "dense_layer": {
-            "values": [512]
+            "values": [128, 256, 512]
         },
-                "pre_layer_train": {
-            "values": [20]
-        }
+          "pre_layer_train": {
+            "values": [None, 10, 20]
+        },
+
+      
            }
 }
-
 
 
 ## Model Intialization 
